@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="estate_menu_root"
+        name="Real Estate"
+        web_icon="estate,static/description/icon.png"
+        active="True"
+        sequence="30">
+
+        <menuitem id="estate_property_menu"
+            name="Properties"
+            sequence="10">
+
+            <menuitem id="menu_estate_property_listings"
+                action="estate_property_action"
+                groups="base.group_user"
+                sequence="10"/>
+
+        </menuitem>
+
+    </menuitem>
+
+</odoo>
