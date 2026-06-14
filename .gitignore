@@ -51,3 +51,13 @@ package.json
 /man/
 /share/
 /src/
+
+#claude additions
+venv312/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.log
+/build/
+/dist/
