@@ -18,6 +18,17 @@
 
         </menuitem>
 
+        <menuitem id="estate_property_settings_menu"
+            name="Settings"
+            sequence="20">
+
+            <menuitem id="menu_estate_property__types"
+                action="estate_property_type_action"
+                groups="base.group_user"
+                sequence="10"/>
+
+        </menuitem>
+
     </menuitem>
 
 </odoo>

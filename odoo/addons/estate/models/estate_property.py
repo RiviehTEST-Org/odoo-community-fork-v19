@@ -5,7 +5,7 @@ from odoo import fields, models
 from dateutil.relativedelta import relativedelta
 
 
-class Property(models.Model):
+class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Real Estate Properties"
 
@@ -32,3 +32,4 @@ class Property(models.Model):
                    ('sold', 'Sold'), ('cancelled', 'Cancelled')],
         default='new',
         help="The status of the property listing")
+    property_type_id = fields.Many2one("estate.property.type", string="Property Type")
