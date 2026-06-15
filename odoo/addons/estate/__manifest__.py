@@ -15,4 +15,6 @@
         'views/estate_property_views.xml',
         'views/estate_menus.xml',
     ],
+    'author': 'Justin Skootsky',
+    'license': 'LGPL-3',
 }
