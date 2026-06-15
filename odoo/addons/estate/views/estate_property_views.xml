@@ -15,6 +15,7 @@
                 <list string="Listings List">
                     <field name="name"/>
                     <field name="property_type_id"/>
+                    <field name="tag_ids"/>
                     <field name="postcode"/>
                     <field name="bedrooms"/>
                     <field name="living_area"/>
@@ -32,9 +33,10 @@
                 <form string="Listings Form">
                     <sheet>
                         <div class="oe_title">
-                            <h1 class="mb16">
+                            <h1>
                                 <field name="name" placeholder="Name of Property"/>
                             </h1>
+                            <field name="tag_ids" widget="many2many_tags" class="mb16"/>
                         </div>
                         <group>
                             <group>
