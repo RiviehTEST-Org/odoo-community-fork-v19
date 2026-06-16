@@ -15,7 +15,7 @@
                 <list string="Listings List">
                     <field name="name"/>
                     <field name="property_type_id"/>
-                    <field name="tag_ids"/>
+                    <field name="tag_ids" widget="many2many_tags"/>
                     <field name="postcode"/>
                     <field name="bedrooms"/>
                     <field name="living_area"/>
@@ -61,6 +61,15 @@
                                     <field name="garden_area"/>
                                     <field name="garden_orientation"/>
                                 </group>
+                            </page>
+                            <page string="Offers">
+                                <field name="offer_ids" widget="one2many">
+                                    <list>
+                                        <field name="price"/>
+                                        <field name="bidder_id"/>
+                                        <field name="status"/>
+                                    </list>
+                                </field>
                             </page>
                             <page string="People">
                                 <group>

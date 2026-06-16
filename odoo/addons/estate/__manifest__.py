@@ -15,6 +15,7 @@
         'views/estate_property_views.xml',
         'views/estate_property_type_views.xml',
         'views/estate_property_tag_views.xml',
+        'views/estate_property_offer_views.xml',
 # Order matters. Esure all views are loaded before the menus.
         'views/estate_menus.xml',
     ],
