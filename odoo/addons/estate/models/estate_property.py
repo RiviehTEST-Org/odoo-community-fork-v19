@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
+from odoo import fields, models, api
 from dateutil.relativedelta import relativedelta
 
 
@@ -32,8 +32,28 @@ class EstateProperty(models.Model):
                    ('sold', 'Sold'), ('cancelled', 'Cancelled')],
         default='new',
         help="The status of the property listing")
+
+    # -------------------------------------------------------------------------
+    # RELATION FIELDS
+    # -------------------------------------------------------------------------
+
     property_type_id = fields.Many2one("estate.property.type", string="Property Type")
     user_id = fields.Many2one("res.users", string="Sales Agent", index=True, default=lambda self: self.env.user)
     buyer_id = fields.Many2one("res.partner", string="Buyer", index=True, copy=False)
     tag_ids = fields.Many2many("estate.property.tag", string="Property Tags")
     offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
+
+    # -------------------------------------------------------------------------
+    # COMPUTE FIELDS
+    # -------------------------------------------------------------------------
+
+    total_area = fields.Integer(string="Total Area (sqm)", compute="_compute_total", store=True)
+
+    # -------------------------------------------------------------------------
+    # COMPUTE METHODS
+    # -------------------------------------------------------------------------
+
+    @api.depends('garden_area', 'living_area')
+    def _compute_total(self):
+        for estate_prop in self:
+            estate_prop.total_area = estate_prop.garden_area + estate_prop.living_area
